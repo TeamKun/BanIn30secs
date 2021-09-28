@@ -18,4 +18,5 @@ public class Config {
     public static boolean shouldBanPlayer = true;
     public static String kickMessage = "作業しなすぎKick";
     public static String banMessage = "作業しなすぎBAN";
+    public static boolean debugLog = false;
 }

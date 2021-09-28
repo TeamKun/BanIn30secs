@@ -93,9 +93,11 @@ public final class BanIn30secs extends JavaPlugin {
         new BukkitRunnable() {
             @Override
             public void run() {
-                Bukkit.getOnlinePlayers().forEach(p -> {
-                    p.sendMessage(playerRemainingSecsMap.getOrDefault(p, Config.secs) + "");
-                });
+                if (Config.debugLog) {
+                    Bukkit.getOnlinePlayers().forEach(p -> {
+                        p.sendMessage(playerRemainingSecsMap.getOrDefault(p, Config.secs) + "");
+                    });
+                }
             }
         }.runTaskTimerAsynchronously(this, 0, 10);
     }
