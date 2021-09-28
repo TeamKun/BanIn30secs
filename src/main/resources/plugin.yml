@@ -1,0 +1,4 @@
+name: BanIn30secs
+version: '${version}'
+main: net.kunmc.lab.banin30secs.BanIn30secs
+api-version: 1.16
