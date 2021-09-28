@@ -6,6 +6,6 @@ public class MainCommand extends Command {
     public MainCommand() {
         super("banIn30secs");
 
-        children(new StartCommand(), new StopCommand(), new ConfigCommand());
+        children(new StartCommand(), new StopCommand(), new ConfigCommand(), new AddPlayerCommand(), new RemovePlayerCommand());
     }
 }

@@ -20,3 +20,4 @@ public class Config {
     public static String banMessage = "作業しなすぎBAN";
     public static boolean debugLog = false;
 }
+
