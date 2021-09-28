@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class BanIn30secs extends JavaPlugin {
-    private final Map<Player, Integer> playerRemainingSecsMap = new HashMap<>();
+    public static final Map<Player, Integer> playerRemainingSecsMap = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -75,18 +75,20 @@ public final class BanIn30secs extends JavaPlugin {
                     return;
                 }
 
-                Bukkit.getOnlinePlayers().forEach(p -> {
-                    int remainingSecs = playerRemainingSecsMap.getOrDefault(p, Config.secs) - 1;
-                    playerRemainingSecsMap.put(p, remainingSecs);
+                Bukkit.getOnlinePlayers().stream()
+                        .filter(p -> !Config.disabledPlayers.contains(p.getUniqueId()))
+                        .forEach(p -> {
+                            int remainingSecs = playerRemainingSecsMap.getOrDefault(p, Config.secs) - 1;
+                            playerRemainingSecsMap.put(p, remainingSecs);
 
-                    if (remainingSecs <= 0) {
-                        if (Config.shouldBanPlayer) {
-                            p.banPlayer(Config.banMessage);
-                        } else {
-                            p.kickPlayer(Config.kickMessage);
-                        }
-                    }
-                });
+                            if (remainingSecs <= 0) {
+                                if (Config.shouldBanPlayer) {
+                                    p.banPlayer(Config.banMessage);
+                                } else {
+                                    p.kickPlayer(Config.kickMessage);
+                                }
+                            }
+                        });
             }
         }.runTaskTimer(this, 20, 20);
 

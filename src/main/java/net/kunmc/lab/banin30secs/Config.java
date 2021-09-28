@@ -16,8 +16,8 @@ public class Config {
     public static boolean playerToggleSneak = true;
     public static boolean playerChat = true;
     public static boolean shouldBanPlayer = true;
-    public static String kickMessage = "作業しなすぎKick";
-    public static String banMessage = "作業しなすぎBAN";
+    public static String kickMessage = "管理者に退出させられました";
+    public static String banMessage = "このサーバーへのアクセスは禁止されています";
     public static boolean debugLog = false;
 }
 

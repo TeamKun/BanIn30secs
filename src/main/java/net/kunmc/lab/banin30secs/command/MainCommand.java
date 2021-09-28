@@ -4,7 +4,7 @@ import dev.kotx.flylib.command.Command;
 
 public class MainCommand extends Command {
     public MainCommand() {
-        super("banIn30secs");
+        super("banin30secs");
 
         children(new StartCommand(), new StopCommand(), new ConfigCommand(), new AddPlayerCommand(), new RemovePlayerCommand());
     }
